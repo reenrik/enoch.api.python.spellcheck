@@ -1,0 +1,11 @@
+version: "2"
+
+services:
+  spellchecker-api:
+    build: .
+    environment:
+      - DICTIONARY_URL=http://www-01.sil.org/linguistics/wordlists/english/wordlist/wordsEn.txt
+    volumes:
+      - .:/code
+    ports:
+      - "8080:5000"

@@ -1,0 +1,42 @@
+swagger: "2.0"
+info:
+  description: "Spellcheck Swagger documentation"
+  version: "1.0.0"
+  title: "Spellcheck API"
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/"
+
+paths:
+  /spelling/{word}:
+    get:
+      operationId: "api.spelling.class_instance.spellcheck"
+      tags:
+        - "spelling"
+      summary: "Performs a spellcheck operation"
+      description: "Returns a list of word suggestions if word is not found."
+      responses:
+        200:
+          description: "Word or replacement suggestions found"
+          schema:
+            $ref: "#/definitions/SuggestionResponse"
+        404:
+          description: "Word not found"
+      parameters:
+        - name: "word"
+          in: "path"
+          required: true
+          type: "string"
+definitions:
+  SuggestionResponse:
+    type: object
+    properties:
+      correct:
+        type: "boolean"
+      suggestions:
+        type: "array"
+        items:
+          type: "string"
