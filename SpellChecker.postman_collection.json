@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "c20f9caa-2fa1-404b-b118-1f6a68b6a560",
+		"name": "SpellChecker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Spelling 'tst' returns 200 with suggestions",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5e38f6d7-a815-462f-9c5a-ad69a636dd5a",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok; ",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"should contain word 'lost', but not 'cost'\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.suggestions).to.contain(\"lost\");",
+							"    pm.expect(jsonData.suggestions).to.not.contain(\"lost\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/spelling/tst",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spelling",
+						"tst"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spelling 'test' returns 200",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c6908aaf-6610-4c9e-835e-04f7c92fc8dd",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok; ",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"should contain 'test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.suggestions).to.contain(\"test\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/spelling/tst",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spelling",
+						"tst"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Spelling 'xlxlxlxlxl' returns 404",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c6908aaf-6610-4c9e-835e-04f7c92fc8dd",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"response is ok\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"response must be valid and have a body\", function () {",
+							"     pm.response.to.be.ok; ",
+							"     pm.response.to.be.withBody;",
+							"     pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"should contain 'test\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.suggestions).to.contain(\"test\");",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/spelling/tst",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spelling",
+						"tst"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

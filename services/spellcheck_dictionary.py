@@ -23,7 +23,7 @@ class SpellCheckDictionary(object):
         cls.words = wordList
 
     @classmethod
-    def fromList(cls, wordList: []):
+    def fromList(cls, wordList: list):
         cls.words = wordList
 
     @classmethod
