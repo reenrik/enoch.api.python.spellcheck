@@ -7,7 +7,7 @@ import flask
 class SpellCheckerTestCase(unittest.TestCase):
 
     def setUp(self):
-        words = ["test", "tip", "out", "lost", "rate", "tasty", "cost"]
+        words = ["test", "tip", "out", "lost", "rate", "tasty", "cost", "cusp"]
         self.spellChecker = SpellChecker()
         self.spellCheckDictionary = SpellCheckDictionary().fromList(words)
 
